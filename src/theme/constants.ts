@@ -1,1 +1,1 @@
-export const SELECTED_THEME_STORE_KEY = "ats_selected_theme";
+export const SELECTED_THEME_STORE_KEY = "tdl_selected_theme";
