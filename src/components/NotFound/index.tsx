@@ -1,9 +1,9 @@
 import { ReactElement } from "react";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "src/router/constants";
-import { EmptyPlaceholderContainer, NotFoundContainer } from "./styles";
 import { Button, Typography } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
+import { EmptyPlaceholderContainer, NotFoundContainer } from "./styles";
+import { ROUTES } from "src/router/constants";
 
 export const NotFound = (): ReactElement => {
   const navigate = useNavigate();
