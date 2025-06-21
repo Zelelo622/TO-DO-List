@@ -1,16 +1,11 @@
-import React from "react";
-import ReactLogo from "./assets/react.svg";
-import "./App.css";
+import { Spin } from "antd";
+import React, { Suspense } from "react";
+import { AppRouting } from "./router";
 
 const App = (): React.ReactElement => (
-  <>
-    <div>
-      <a href="https://react.dev" target="_blank" rel="noreferrer">
-        <ReactLogo />
-      </a>
-    </div>
-    <h1>Vite + React</h1>
-  </>
+  <Suspense fallback={<Spin />}>
+    <AppRouting />
+  </Suspense>
 );
 
 export default App;
