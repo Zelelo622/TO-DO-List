@@ -32,7 +32,7 @@ export default ({ mode }) => {
           minifyInternalExports: false,
           manualChunks: {
             react: ["react", "react-dom/client", "react-router-dom"],
-            mobx: ["mobx", "mobx-react", "mobx-react-lite", "mobx-utils"],
+            mobx: ["mobx", "mobx-react", "mobx-react-lite"],
             "styled-components": ["styled-components"]
           }
         }
