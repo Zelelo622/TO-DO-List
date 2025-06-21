@@ -1,0 +1,7 @@
+prettier.config.cjs
+lint-staged.config.cjs
+vite.config.ts
+configs/*
+.husky/
+dist/
+server/
