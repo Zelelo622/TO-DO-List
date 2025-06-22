@@ -1,0 +1,25 @@
+import { Checkbox, List, Typography } from "antd";
+import { ReactElement } from "react";
+import { observer } from "mobx-react-lite";
+import { ListItemStyled } from "./styles";
+import { useCommonStore } from "src/store/DAL";
+
+export const TodoItems = observer((): ReactElement => {
+  const { todoList, toggleTodoCompleted } = useCommonStore();
+
+  return (
+    <List
+      dataSource={todoList}
+      size="small"
+      renderItem={(item) => (
+        <ListItemStyled>
+          <Checkbox
+            checked={item.completed}
+            onChange={() => toggleTodoCompleted(item.id)}
+          />
+          <Typography.Text>{item.title}</Typography.Text>
+        </ListItemStyled>
+      )}
+    />
+  );
+});
