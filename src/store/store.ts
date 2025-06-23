@@ -17,4 +17,17 @@ export class CommonStore {
       todo.id === id ? { ...todo, completed: !todo.completed } : todo
     );
   };
+
+  public updateTodoItem = (id: string, updates: Partial<ITodoItem>): void => {
+    if (
+      typeof updates.title === "string" &&
+      updates.title.trim().length === 0
+    ) {
+      return;
+    }
+
+    this.todoList = this.todoList.map((todo) =>
+      todo.id === id ? { ...todo, ...updates } : todo
+    );
+  };
 }

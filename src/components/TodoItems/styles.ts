@@ -11,4 +11,15 @@ export const ListItemStyled = styled(List.Item)`
   &:hover {
     background-color: var(--ant-control-item-bg-hover);
   }
+
+  .ant-typography-edit-content {
+    margin: 0 !important;
+    margin-left: 10px !important;
+    width: 100%;
+    padding: 0;
+    border: none;
+
+    & > textarea {
+    }
+  }
 `;

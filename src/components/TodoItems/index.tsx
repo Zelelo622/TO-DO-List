@@ -5,7 +5,7 @@ import { ListItemStyled } from "./styles";
 import { useCommonStore } from "src/store/DAL";
 
 export const TodoItems = observer((): ReactElement => {
-  const { todoList, toggleTodoCompleted } = useCommonStore();
+  const { todoList, toggleTodoCompleted, updateTodoItem } = useCommonStore();
 
   return (
     <List
@@ -17,7 +17,15 @@ export const TodoItems = observer((): ReactElement => {
             checked={item.completed}
             onChange={() => toggleTodoCompleted(item.id)}
           />
-          <Typography.Text>{item.title}</Typography.Text>
+          <Typography.Text
+            style={{ width: "100%" }}
+            editable={{
+              triggerType: ["text"],
+              onChange: (newTitle) =>
+                updateTodoItem(item.id, { title: newTitle })
+            }}>
+            {item.title}
+          </Typography.Text>
         </ListItemStyled>
       )}
     />
