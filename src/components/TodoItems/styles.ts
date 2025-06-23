@@ -1,7 +1,7 @@
-import { List } from "antd";
-import { styled } from "styled-components";
+import { Input, List } from "antd";
+import { css, styled } from "styled-components";
 
-export const ListItemStyled = styled(List.Item)`
+export const ListItemStyled = styled(List.Item)<{ isSelected: boolean }>`
   display: flex !important;
   justify-content: start !important;
   gap: 8px !important;
@@ -12,14 +12,13 @@ export const ListItemStyled = styled(List.Item)`
     background-color: var(--ant-control-item-bg-hover);
   }
 
-  .ant-typography-edit-content {
-    margin: 0 !important;
-    margin-left: 10px !important;
-    width: 100%;
-    padding: 0;
-    border: none;
+  ${({ isSelected }) =>
+    isSelected &&
+    css`
+      background-color: var(--ant-color-bg-text-hover);
+    `}
+`;
 
-    & > textarea {
-    }
-  }
+export const InputStyled = styled(Input)`
+  border: none;
 `;
