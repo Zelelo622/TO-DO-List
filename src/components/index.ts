@@ -3,3 +3,4 @@ export { NotFound } from "./NotFound";
 export { Sidebar } from "./Sidebar";
 export { AddTodoItem } from "./AddTodoItem";
 export { TodoItems } from "./TodoItems";
+export { Details } from "./Details";
