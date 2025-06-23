@@ -24,6 +24,10 @@ export const AppTheme = ({ children }: PropsWithChildren): ReactElement => {
       theme={{
         algorithm:
           themeMode === "light" ? theme.defaultAlgorithm : theme.darkAlgorithm,
+        token: {
+          colorTextPlaceholder:
+            themeMode === "light" ? "rgba(0,0,0,0.3)" : "rgba(255,255,255,0.4)"
+        },
         cssVar: true
       }}>
       <ThemeContext.Provider value={{ theme: themeMode, changeTheme }}>
