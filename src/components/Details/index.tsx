@@ -9,11 +9,12 @@ import { EditorWrapper, StyledBubbleMenu } from "./styles";
 import { useCommonStore } from "src/store/DAL";
 
 export const Details = (): ReactElement | null => {
-  const { todoList } = useCommonStore();
+  const { todoList, updateTodoItem } = useCommonStore();
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  const isPresent = todoList.some((item) => item.id === id);
+  const todo = todoList.find((item) => item.id === id);
+  const isPresent = !!todo;
 
   useEffect(() => {
     if (!isPresent) {
@@ -21,16 +22,18 @@ export const Details = (): ReactElement | null => {
     }
   }, [id, isPresent, navigate]);
 
-  const editor = useEditor({
-    extensions: [
-      StarterKit,
-      TaskList,
-      TaskItem.configure({
-        nested: true
-      })
-    ],
-    content: ""
-  });
+  const editor = useEditor(
+    {
+      extensions: [StarterKit, TaskList, TaskItem.configure({ nested: true })],
+      content: todo?.editorContent || "",
+      onUpdate: ({ editor: edit }) => {
+        if (id) {
+          updateTodoItem(id, { editorContent: edit.getHTML() });
+        }
+      }
+    },
+    [id]
+  );
 
   if (!isPresent) {
     return null;
@@ -38,7 +41,7 @@ export const Details = (): ReactElement | null => {
 
   return (
     <>
-      <h2>Детали задачи с ID: {id}</h2>
+      <h2>Детали задачи {todo.title}</h2>
       {editor && (
         <StyledBubbleMenu
           className="bubble-menu"
