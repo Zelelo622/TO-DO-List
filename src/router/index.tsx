@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import { lazy, ReactElement } from "react";
 import { ROUTES } from "./constants";
-import { SafeLoad } from "src/components";
+import { Details, SafeLoad } from "src/components";
 import { LayoutPages } from "src/app/LayoutPages";
 
 const Main = lazy(() =>
@@ -31,7 +31,13 @@ export const AppRouting = (): ReactElement => {
             <SafeLoad>
               <Main />
             </SafeLoad>
-          )
+          ),
+          children: [
+            {
+              path: ROUTES.todoDetails.path,
+              element: <Details />
+            }
+          ]
         },
         {
           id: "not-found",

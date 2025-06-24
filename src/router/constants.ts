@@ -7,8 +7,8 @@ export const DEFAULT_ROUTE_PARAMS = "";
 export const ROUTES = {
   root: {
     path: "/"
+  },
+  todoDetails: {
+    path: "/todo/:id"
   }
-  //   todoDetails: {
-  //     path: "/todo/:id"
-  //   }
 };
