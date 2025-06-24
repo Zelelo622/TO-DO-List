@@ -20,7 +20,7 @@ export const Details = (): ReactElement | null => {
     if (!isPresent) {
       navigate("/", { replace: true });
     }
-  }, [id, isPresent, navigate]);
+  }, [id, isPresent]);
 
   const editor = useEditor(
     {

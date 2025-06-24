@@ -19,13 +19,6 @@ export class CommonStore {
   };
 
   public updateTodoItem = (id: string, updates: Partial<ITodoItem>): void => {
-    if (
-      typeof updates.title === "string" &&
-      updates.title.trim().length === 0
-    ) {
-      return;
-    }
-
     this.todoList = this.todoList.map((todo) =>
       todo.id === id ? { ...todo, ...updates } : todo
     );
