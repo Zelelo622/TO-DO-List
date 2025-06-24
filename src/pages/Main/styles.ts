@@ -13,5 +13,8 @@ export const TodoContainer = styled.div`
 `;
 
 export const DetailsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 50%;
+  height: 100%;
 `;
